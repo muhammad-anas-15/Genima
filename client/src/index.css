@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+/* Define your Design System here for Tailwind v4 */
+@theme {
+  --color-brand-dark: #050505;
+  --color-brand-purple: #8c46ff;
+  --color-brand-light: #b889ff;
+  --color-brand-text: #e1e1e1;
+  --color-brand-muted: #6b7280;
+  
+  /* Override the default sans font */
+  --font-sans: "Outfit", sans-serif;
+  
+  /* Custom Background Image */
+  --image-hero-glow: radial-gradient(circle at 50% -20%, rgba(140, 70, 255, 0.4) 0%, rgba(5, 5, 5, 0) 60%);
+}
+
+@layer base {
+  body {
+    /* Now bg-brand-dark works because it's defined in @theme above */
+    @apply bg-brand-dark text-brand-text font-sans antialiased overflow-x-hidden;
+    background-image: radial-gradient(circle at 50% 0%, #2a1b3d 0%, #050505 80%);
+    min-height: 100vh;
+  }
+}
+
+/* Utilities */
+.text-gradient {
+  background: linear-gradient(to right, #ffffff 0%, #b889ff 50%, #8c46ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.glass-panel {
+  @apply bg-white/5 backdrop-blur-md border border-white/10;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
