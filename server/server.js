@@ -11,7 +11,11 @@ const app = express()
 
 // middlewares
 app.use(express.json())
-app.use(cors())
+app.use(cors({
+    //  Frontend URL here, plus localhost
+    origin: ['https://genima-client.vercel.app', 'http://localhost:5173'], 
+    credentials: true
+}))
 
 connectDB()
 
